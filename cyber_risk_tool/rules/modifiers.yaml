@@ -1,0 +1,99 @@
+amount_of_sensitive_information:
+  name: Amount of Sensitive Information
+  enabled: true
+  phase: Active
+  weight: 1.0
+  description: Evaluates data sensitivity exposure by determining customer type and internet-facing e-commerce platforms.
+  target_parameter: Customer type (B2B/B2C) and e-commerce presence.
+  research_needed: Detect online transaction forms, shopping carts, and customer profiles.
+  scoring_notes: B2B with no e-commerce is Favorable. B2C or e-commerce presence increases risk.
+
+domain_encryption:
+  name: Domain Encryption
+  enabled: true
+  phase: Active
+  weight: 1.0
+  description: Evaluates HTTPS and domain encryption posture.
+  target_parameter: All company-owned domains and SSL/TLS support.
+  research_needed: Domain discovery and HTTPS validation.
+  scoring_notes: Valid HTTPS across all domains is Favorable. Missing HTTPS is Unfavorable.
+
+geographic_spread:
+  name: Geographic Spread
+  enabled: true
+  phase: Active
+  weight: 1.0
+  description: Evaluates geographic concentration and international exposure.
+  target_parameter: Number of countries, continent spread, and USA operations.
+  research_needed: Office locations, regional operations, and international divisions.
+  scoring_notes: Concentrated footprint relative to revenue size is Favorable. Very broad global footprint is Unfavorable.
+
+privacy_regulation:
+  name: Privacy Regulation
+  enabled: true
+  phase: Active
+  weight: 1.0
+  description: Evaluates privacy policy and regulatory signals.
+  target_parameter: Presence of privacy policy and compliance terms (GDPR, CCPA, etc.).
+  research_needed: Privacy policy links, compliance certifications, and data subject rights.
+  scoring_notes: Strong compliance terms is Favorable. Generic legal terms only is Partially Unfavorable.
+
+internet_footprint:
+  name: Internet Footprint
+  enabled: true
+  phase: Partial MVP
+  weight: 1.0
+  description: Evaluates cyber exposure from accessible domain footprint multiplied by estimated scale.
+  target_parameter: Domain count, subdomains, and customer/user scale.
+  research_needed: Brands, subsidiaries, regional sites, and scale estimation.
+  scoring_notes: Low footprint and scale is Favorable. Broad footprint with high user scale is Unfavorable.
+
+nature_of_services:
+  name: Nature of Services
+  enabled: true
+  phase: Partial MVP
+  weight: 1.0
+  description: Evaluates product/service portfolio by extracting offerings and mapping them to cyber sub-industries.
+  target_parameter: Product/service offerings and cyber sub-industry classification.
+  research_needed: Product descriptions, industry keywords, and SaaS/Cloud exposure.
+  scoring_notes: Offline/limited digital footprint is Favorable. High digital/platform exposure is Unfavorable.
+
+mergers_and_acquisitions:
+  name: Mergers and Acquisitions
+  enabled: false
+  phase: Phase 2
+  weight: 1.0
+  description: Assesses risk from deal counts, relative deal sizes, and recency.
+  target_parameter: Acquisition history, deal count, and relative deal size.
+  research_needed: Acquisition announcements, press releases, SEC footnotes, and deal databases.
+  scoring_notes: Requires paid data sources. Not included in current automated score.
+
+organizational_complexity:
+  name: Organizational Complexity
+  enabled: false
+  phase: Phase 2
+  weight: 1.0
+  description: Evaluates structure complexity by counting total subsidiaries and comparing against revenue-tier thresholds.
+  target_parameter: Subsidiary count and organizational hierarchy complexity.
+  research_needed: SEC exhibit 21, annual reports, and corporate registries.
+  scoring_notes: Requires paid data sources. Not included in current automated score.
+
+seasonality_of_sales:
+  name: Seasonality of Sales
+  enabled: false
+  phase: Phase 2
+  weight: 1.0
+  description: Evaluates revenue volatility using coefficient of variation of quarterly revenue or industry benchmark.
+  target_parameter: Revenue/sales seasonality and CV of quarterly revenue.
+  research_needed: SEC quarterly filings, industry SIC codes, and annual reports.
+  scoring_notes: Requires financial data. Not included in current automated score.
+
+volatility_recovery_in_sales:
+  name: Volatility / Recovery in Sales
+  enabled: false
+  phase: Phase 2
+  weight: 1.0
+  description: Evaluates sales disruption resilience through digital revenue exposure, disruption velocity, and recovery complexity.
+  target_parameter: Digital exposure, disruption speed, and recovery complexity.
+  research_needed: Digital sales channels and footprint signals.
+  scoring_notes: Requires additional data sources. Not included in current automated score.

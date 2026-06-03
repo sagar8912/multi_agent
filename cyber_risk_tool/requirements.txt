@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+httpx
+beautifulsoup4
+PyYAML
+python-dotenv
+\nreportlab==4.1.0\n
